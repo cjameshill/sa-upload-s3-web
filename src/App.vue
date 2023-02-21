@@ -40,7 +40,7 @@ const getUploadSignedUrl = async () => {
 };
 const upload = async () => {
   loading.value = true;
-  const options = {
+  const options: any = {
     method: "PUT",
     headers: { "Content-Type": fileType.value },
     body: file.value,
