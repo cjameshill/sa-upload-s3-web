@@ -21,7 +21,10 @@ const getUploadSignedUrl = async () => {
   };
   const options = {
     method: "POST",
-    headers: { "Content-Type": "application/json", Authorization: "1234" },
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: import.meta.env.VITE_API_KEY,
+    },
     body: JSON.stringify(body),
   };
 
