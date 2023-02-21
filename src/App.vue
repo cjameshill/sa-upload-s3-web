@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { ref, watch, computed } from "vue";
 import { useFileDialog } from "@vueuse/core";
-const { files, open, reset } = useFileDialog();
+const { files, open, reset }: any = useFileDialog();
 const newKey = ref("");
 const signedUrl = ref("");
 const uploadResponse: any = ref("");
 const loading = ref(false);
 
-const file = computed(() =>
+const file: any = computed(() =>
   files.value && files.value.length > 0 ? files.value[0] : null
 );
 
