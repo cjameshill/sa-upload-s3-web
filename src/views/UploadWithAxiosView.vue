@@ -58,8 +58,8 @@ const upload = async () => {
   const res = await axios
     .request(options)
     .then(function (response) {
-      console.log(response.data);
-      return response.data;
+      console.log(response);
+      return response;
     })
     .catch(function (error) {
       console.error(error);
