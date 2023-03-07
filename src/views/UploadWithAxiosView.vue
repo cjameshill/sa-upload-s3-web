@@ -43,16 +43,22 @@ const getUploadSignedUrl = async () => {
   loading.value = false;
   return res;
 };
+
+const updateProgressAxiosV0 = (event: any) => {
+  progressAmount.value = Math.round((event.loaded / event.total) * 100);
+};
+const updateProgressAxiosV1 = (event: any) => {
+  progressAmount.value = event.progress;
+};
+
 const upload = async () => {
   loading.value = true;
   const options = {
     method: "PUT",
     url: signedUrl.value,
     headers: { "Content-Type": fileType.value },
-    onUploadProgress: function (progressEvent) {
-      console.log("progress: ", progressEvent);
-      progressAmount.value = progressEvent.progress;
-    },
+    onUploadProgress: (progressEvent: any) =>
+      updateProgressAxiosV0(progressEvent),
     data: file.value,
   };
   const res = await axios
