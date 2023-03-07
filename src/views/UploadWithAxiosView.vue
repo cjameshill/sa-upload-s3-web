@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import axios from "axios";
-import { ref, computed } from "vue";
+import { ref, computed, inject } from "vue";
 import { useFileDialog } from "@vueuse/core";
 const { files, open }: any = useFileDialog();
+const axios: any = inject("axios");
 const newKey = ref("");
 const signedUrl = ref("");
 const uploadResponse: any = ref("");
